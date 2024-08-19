@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook H1 M01</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 15px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: right;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: right;
+            font-style: italic;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            if (selectedTime === '45') {
+                document.getElementById('activity-4').style.display = 'none';
+            } else if (selectedTime === '40') {
+                document.getElementById('activity-4').style.display = 'none';
+                document.getElementById('activity-7').style.display = 'none';
+                document.getElementById('activity-2').style.display = 'none';
+            }
+        }
+
+        function navigateTo(id) {
+            var element = document.getElementById(id);
+            window.scrollTo({
+                top: element.offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</head>
+<body onload="updateActivities()">
+
+<div class="header">
+    <h1>Playbook H1 M01</h1>
+</div>
+
+<div class="container">
+    <div class="dropdown">
+        <label for="time-select">Tiempo efectivo de Clase:</label>
+        <select id="time-select" onchange="updateActivities()">
+            <option value="50">50 minutos</option>
+            <option value="45">45 minutos</option>
+            <option value="40">40 minutos</option>
+        </select>
+    </div>
+
+    <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+
+    <!-- Actividad 1 (4 pasos) -->
+    <div id="activity-1" class="activity">
+        <div class="banner" onclick="toggleContent('saludo')">
+            <div class="title">
+                <span>📚 Actividad 1: Saludo y Ritual Gnius Club (4 pasos)</span>
+                <span>⏰ Tiempo: 2.5 minutos</span>
+            </div>
+            <div class="subtitle">Dar la bienvenida y preparar el ambiente</div>
+        </div>
+        <div id="saludo" class="content">
+            <div class="section">
+                <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 2 "Gnius Club"</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">¡Hola, Genios! Hoy nos adentraremos en uno de los temas más emocionantes y relevantes de nuestro tiempo: la inteligencia artificial. Vamos a descubrir qué es, cómo funciona y qué impacto tiene en nuestras vidas. ¿Listos para empezar este viaje?</div>
+            </div>
+            <div class="section">
+                <div class="step-title">Paso 2 (1.0 minutos): Proyectar Diapositiva 3 "¿Cómo están hoy?"</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">Antes de empezar, quiero saber cómo se sienten hoy. Si están curiosos por aprender sobre la inteligencia artificial, levanten la mano derecha. Si no les causa mucha curiosidad el tema, levanten la mano izquierda. Es genial ver tanto interés en algo tan innovador.</div>
+            </div>
+            <div class="section">
+                <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 4 "Gracias por Asistir"</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">Ahora, juntemos nuestras manos en señal de agradecimiento por estar aquí y tener la oportunidad de explorar algo tan fascinante como la inteligencia artificial. ¡Gracias por asistir, Genios!</div>
+            </div>
+            <div class="section">
+                <div class="step-title">Paso 4 (0.5 minutos): Proyectar Diapositiva 5 "Objetivos de la Misión"</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">Hoy tenemos dos objetivos importantes: vamos a entender qué es la inteligencia artificial y exploraremos algunas de sus aplicaciones actuales. Al final de la misión, estarán pensando en cómo podrían usar la IA en su vida diaria o en futuros proyectos.</div>
+            </div>
+        </div>
+    </div>
+<!-- Actividad 2 (4 pasos) -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('innovacion')">
+        <div class="title">
+            <span>📚 Actividad 2: Innovación del Día (4 pasos)</span>
+            <span>⏰ Tiempo: 6 minutos</span>
+        </div>
+        <div class="subtitle">Explorar una innovación actual y su impacto</div>
+    </div>
+    <div id="innovacion" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (1.5 minutos): Proyectar Diapositiva 6 "Innovación del Día"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Hoy quiero mostrarles una innovación que ha cambiado la forma en que interactuamos con la tecnología: ChatGPT. Es un modelo de lenguaje desarrollado por OpenAI que utiliza inteligencia artificial para mantener conversaciones con personas, entender preguntas, y generar respuestas de una manera que se siente sorprendentemente natural.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (2.0 minutos): Proyectar Diapositiva 7 "Aplicaciones de ChatGPT"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">ChatGPT se está utilizando en una variedad de industrias: desde atención al cliente, donde puede responder preguntas comunes y ayudar a los usuarios a resolver problemas, hasta educación, donde puede ser un tutor personal. Incluso se usa en la creación de contenido, generando textos y hasta ayudando en la programación. Lo que hace que ChatGPT sea tan innovador es su capacidad para entender y generar lenguaje natural, haciendo que la interacción con la tecnología sea más humana y accesible.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1.5 minutos): Proyectar Diapositiva 8 "Impacto de la IA"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Este tipo de tecnología no sería posible sin la inteligencia artificial. ChatGPT es un ejemplo perfecto de cómo la IA está revolucionando la manera en que interactuamos con las máquinas. Nos muestra que la inteligencia artificial no es solo un concepto teórico, sino una herramienta poderosa que está siendo utilizada hoy para resolver problemas y mejorar nuestras vidas.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (1.0 minutos): Proyectar Diapositiva 9 "Reflexión"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora que hemos visto cómo ChatGPT está transformando el mundo, es momento de profundizar en lo que realmente es la inteligencia artificial y cómo funciona. Vamos a explorar este fascinante mundo juntos.</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function updateActivities() {
+        var selectedTime = document.getElementById('time-select').value;
+        var activities = document.getElementsByClassName('activity');
+
+        document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+        for (var i = 0; i < activities.length; i++) {
+            activities[i].style.display = 'block';
+        }
+
+        if (selectedTime === '45') {
+            document.getElementById('activity-4').style.display = 'none';
+            document.getElementById('activity-7').style.display = 'none';
+        } else if (selectedTime === '40') {
+            document.getElementById('activity-2').style.display = 'none';
+            document.getElementById('activity-4').style.display = 'none';
+            document.getElementById('activity-7').style.display = 'none';
+        }
+    }
+</script>
+<!-- Actividad 3 (9 pasos) -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('brain_gym')">
+        <div class="title">
+            <span>📚 Actividad 3: Brain Gym (9 pasos)</span>
+            <span>⏰ Tiempo: 15 minutos</span>
+        </div>
+        <div class="subtitle">Ejercitar el cerebro y preparar para el desafío del día</div>
+    </div>
+    <div id="brain_gym" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (2 minutos): Proyectar Diapositiva 10 "Brain Gym"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Antes de realizar el desafío del día, vamos a ejercitar nuestros cerebros adquiriendo un conocimiento nuevo. Así que pongan atención porque dentro de lo que voy a explicar hay un Easter Egg. Al final de la clase voy a lanzar una pregunta y quien la responda, ganará mon-e. Hoy vamos a explorar un concepto que seguramente han escuchado mucho: la inteligencia artificial, o IA. Pero, ¿qué significa realmente? La IA es la capacidad de las máquinas para realizar tareas que normalmente requerirían inteligencia humana. Pueden pensar en la IA como una forma de hacer que las máquinas 'piensen' por sí mismas.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1.5 minutos): Proyectar Diapositiva 11 "Algoritmos y Datos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Para entender mejor, piensen en cómo funcionan nuestros cerebros. Aprendemos de la experiencia, reconocemos patrones y tomamos decisiones. La IA hace algo similar, pero en lugar de neuronas, utiliza algoritmos y datos. Los algoritmos son como las instrucciones que siguen para resolver problemas o realizar tareas.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1.5 minutos): Proyectar Diapositiva 12 "Aprendizaje a través de datos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">La IA aprende a través de los datos. Cuantos más datos tiene, mejor se vuelve en sus tareas. Es como cuando ustedes practican un deporte o un instrumento musical: mientras más practican, mejor se vuelven. La IA analiza grandes cantidades de datos para encontrar patrones y mejorar su rendimiento con el tiempo.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (1 minuto): Proyectar Diapositiva 13 "Corrector Automático"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Un ejemplo sencillo de IA es el corrector automático en sus teléfonos. Cuando escriben un mensaje, la IA está analizando las palabras que usan y les sugiere correcciones o las completa automáticamente. Está aprendiendo de la forma en que ustedes escriben y se adapta para hacer sugerencias más precisas con el tiempo.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (1.5 minutos): Proyectar Diapositiva 14 "Aprendizaje Automático"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">La IA que estamos viendo en estos ejemplos se basa en un concepto llamado 'aprendizaje automático', o Machine Learning. En lugar de estar programada para realizar una tarea específica, la IA aprende a hacerlo por sí misma, analizando datos y mejorando con el tiempo. Es una de las razones por las que la IA es tan poderosa.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 6 (2 minutos): Proyectar Diapositiva 15 "Aplicaciones de IA"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">El aprendizaje automático está presente en muchas de las aplicaciones que usan todos los días. Por ejemplo, cuando ven recomendaciones en Netflix, la IA está aprendiendo de sus hábitos de visualización y les sugiere series o películas que podrían gustarles. Cada vez que eligen algo, la IA mejora en predecir lo que les interesará.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 7 (1.5 minutos): Proyectar Diapositiva 16 "IA en la toma de decisiones"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Otra forma en que la IA se utiliza es en la toma de decisiones basadas en datos. Por ejemplo, las empresas pueden usar IA para analizar datos de ventas y decidir qué productos deben producir más. La IA toma decisiones al analizar datos complejos que serían difíciles para los humanos procesar en poco tiempo.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 8 (2 minutos): Proyectar Diapositiva 17 "Impacto de la IA"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">La IA está cambiando nuestras vidas de muchas maneras, desde la forma en que compramos en línea hasta cómo recibimos atención médica. A medida que esta tecnología continúa avanzando, su impacto será aún mayor. Es por eso que es tan importante entenderla y aprender cómo podemos utilizarla de manera efectiva.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 9 (2.5 minutos): Proyectar Diapositiva 18 "Aplicación Práctica"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora que ya tienen una comprensión básica de lo que es la inteligencia artificial y cómo funciona, es momento de experimentarlo por ustedes mismos. Vamos a usar Google Labs para explorar cómo estas tecnologías pueden ser aplicadas en situaciones reales, y verán de primera mano el poder de la IA.</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 4 (5 pasos) -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('state_change')">
+        <div class="title">
+            <span>📚 Actividad 4: State Change (5 pasos)</span>
+            <span>⏰ Tiempo: 5 minutos</span>
+        </div>
+        <div class="subtitle">Desafío de equilibrio para reactivar la mente y el cuerpo</div>
+    </div>
+    <div id="state_change" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 19 "Desafío de Equilibrio"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, antes de continuar, vamos a hacer un pequeño desafío que nos ayudará a mejorar nuestra concentración y estabilidad. Se llama el "Desafío de Equilibrio".</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 20 "Levantando una pierna"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Todos de pie, por favor. Vamos a empezar levantando una pierna, la que prefieran, y mantener el equilibrio sobre la otra durante 30 segundos. Este ejercicio no solo mejora la concentración, sino que también nos ayuda a centrarnos en el momento presente.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Proyectar Diapositiva 21 "Contando hasta 30"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora, levanten una pierna y comiencen a equilibrarse. Vamos a contar juntos: uno, dos, tres... hasta 30. Concéntrense en un punto fijo frente a ustedes para ayudar a mantener el equilibrio.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (1 minuto): Proyectar Diapositiva 22 "Cambio de pierna"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Bien hecho. Ahora, cambien de pierna y repitan el ejercicio. Mantengan el equilibrio por otros 30 segundos. Esta vez, traten de concentrarse aún más, sintiendo cómo su cuerpo trabaja para mantenerse estable.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (1 minuto): Proyectar Diapositiva 23 "Concentración y equilibrio"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Excelente trabajo, Genios. Este desafío de equilibrio no solo fortalece nuestro cuerpo, sino también nuestra mente. Al enfocarnos en mantener el equilibrio, mejoramos nuestra concentración, algo que será clave en la próxima actividad que exploraremos juntos.</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function updateActivities() {
+        var selectedTime = document.getElementById('time-select').value;
+        var activities = document.getElementsByClassName('activity');
+
+        document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+        for (var i = 0; i < activities.length; i++) {
+            activities[i].style.display = 'block';
+        }
+
+        if (selectedTime === '45') {
+            document.getElementById('activity-4').style.display = 'none';
+            document.getElementById('activity-7').style.display = 'none';
+        } else if (selectedTime === '40') {
+            document.getElementById('activity-2').style.display = 'none';
+            document.getElementById('activity-4').style.display = 'none';
+            document.getElementById('activity-7').style.display = 'none';
+        }
+    }
+</script>
+<!-- Actividad 5 (3 pasos) -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('team_gnius')">
+        <div class="title">
+            <span>📚 Actividad 5: Team Gnius (3 pasos)</span>
+            <span>⏰ Tiempo: 5 minutos</span>
+        </div>
+        <div class="subtitle">Formar equipos y preparar la herramienta clave</div>
+    </div>
+    <div id="team_gnius" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (2 minutos): Proyectar Diapositiva 24 "Formar equipos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, para la siguiente parte de nuestra misión, van a trabajar en parejas. Así que quiero que se junten con la persona más cercana a ustedes. Tómense un momento para formar sus equipos y prepararse para lo que sigue.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1.5 minutos): Proyectar Diapositiva 25 "Recoger la Magic Tablet"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora, un representante de cada pareja va a pasar por una Magic Tablet. Esta será su herramienta clave para la siguiente actividad, así que asegúrense de tenerla lista.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1.5 minutos): Proyectar Diapositiva 26 "Importancia del trabajo en equipo"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Recuerden, el trabajo en equipo es fundamental, especialmente cuando estamos explorando conceptos complejos como la inteligencia artificial. La Magic Tablet les ayudará a tomar notas, dibujar ideas, y organizar sus pensamientos en pareja. Aprovechen al máximo esta herramienta y colaboren de manera efectiva.</div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 6 (7 pasos) -->
+<div id="activity-6" class="activity">
+    <div class="banner" onclick="toggleContent('challenge')">
+        <div class="title">
+            <span>📚 Actividad 6: Challenge (7 pasos)</span>
+            <span>⏰ Tiempo: 15 minutos</span>
+        </div>
+        <div class="subtitle">Explorar Google Labs y aplicar la inteligencia artificial</div>
+    </div>
+    <div id="challenge" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (2 minutos): Proyectar Diapositiva 27 "Introducción a Google Labs"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, vamos a explorar un espacio increíble llamado Google Labs. Es un lugar donde Google experimenta con diferentes tecnologías, incluidas muchas basadas en inteligencia artificial. Aquí encontrarán aplicaciones que están en fase de prueba y que nos muestran el futuro de la tecnología.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (2 minutos): Proyectar Diapositiva 28 "Explorar aplicaciones disponibles"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Al entrar en labs.google.com, verán una lista de aplicaciones. Algunas de ellas pueden no estar disponibles todavía, pero las que tienen el botón 'Try now' están listas para que las prueben. Estas apps les permitirán ver de primera mano cómo la IA puede aplicarse en diferentes áreas, desde creatividad hasta productividad.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (5 minutos): Proyectar Diapositiva 29 "Exploración individual"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora les voy a dar 5 minutos para explorar Google Labs. Prueben las apps que les llamen la atención y vean lo que pueden hacer con ellas. Recuerden, están experimentando con tecnología de vanguardia, así que aprovechen esta oportunidad para jugar y aprender.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (N/A): Proyectar Diapositiva 30 "Pensando en una aplicación"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">N/A</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (3 minutos): Proyectar Diapositiva 31 "Crear una idea"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora que han explorado Google Labs y han visto algunos ejemplos, quiero que piensen en una aplicación que podrían crear utilizando inteligencia artificial. No hay límites para lo que pueden imaginar, así que dejen volar su creatividad.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 6 (N/A): Proyectar Diapositiva 32 "Compartir ideas en pareja"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">N/A</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 7 (3 minutos): Proyectar Diapositiva 33 "Compartir ideas en pareja"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora, tómense 3 minutos para compartir sus ideas con la pareja que tienen más cerca. Escuchen lo que han pensado y discutan cómo podrían hacer que sus ideas sean aún mejores. ¡La colaboración es clave cuando se trata de innovación!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 8 (N/A): Proyectar Diapositiva 34 "Recompensa por participación"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">N/A</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 9 (2 minutos): Proyectar Diapositiva 35 "Recompensa por participación"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, ¡excelente trabajo! Todos han hecho un esfuerzo increíble hoy y se merecen Mon-e por su participación. Recuerden, las mejores ideas surgen cuando dejamos volar nuestra imaginación.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 10 (2 minutos): Proyectar Diapositiva 36 "Resumen de objetivos alcanzados"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Antes de terminar, veamos los objetivos que alcanzamos hoy: 1. Comprendimos qué es la inteligencia artificial. 2. Exploramos aplicaciones prácticas de la IA. ¡Bien hecho, Genios!</div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 7 (3 pasos) -->
+<div id="activity-7" class="activity">
+    <div class="banner" onclick="toggleContent('easter_egg')">
+        <div class="title">
+            <span>📚 Actividad 7: Easter Egg (3 pasos)</span>
+            <span>⏰ Tiempo: 5 minutos</span>
+        </div>
+        <div class="subtitle">Evaluar la atención con una pregunta sorpresa</div>
+    </div>
+    <div id="easter_egg" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (2 minutos): Proyectar Diapositiva 36 "Easter Egg - Pregunta"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, llegó el momento de ver quién ha estado prestando atención. La siguiente diapositiva tiene una pregunta sobre algo que discutimos hoy. Voy a premiar con Mon-e a las tres primeras personas que me den la respuesta correcta. Recuerden, la dinámica es la siguiente: en cuanto pase a la siguiente diapositiva, lean la pregunta y si saben la respuesta, levanten la mano. No digan la respuesta en voz alta, solo levanten la mano. Yo seleccionaré a 3 de ustedes. ¿Listos?</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1.5 minutos): Proyectar Diapositiva 37 "Pregunta: ¿Cuál es un ejemplo cotidiano de IA en sus teléfonos del que hablamos?"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Uno, dos, tres. Levanten la mano si saben la respuesta. ¡Muy bien! Vamos a escuchar lo que tienen que decir.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1.5 minutos): Proyectar Diapositiva 38 "Respuesta Correcta"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Uno, ven y dime la respuesta al oído. Ahora tú, dos. Y por último, el tres. La respuesta correcta es "El corrector automático". ¡Muy bien, a los ganadores les toca Mon-e!</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function updateActivities() {
+        var selectedTime = document.getElementById('time-select').value;
+        var activities = document.getElementsByClassName('activity');
+
+        document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+        for (var i = 0; i < activities.length; i++) {
+            activities[i].style.display = 'block';
+        }
+
+        if (selectedTime === '45') {
+            document.getElementById('activity-4').style.display = 'none';
+            document.getElementById('activity-7').style.display = 'none';
+        } else if (selectedTime === '40') {
+            document.getElementById('activity-2').style.display = 'none';
+            document.getElementById('activity-4').style.display = 'none';
+            document.getElementById('activity-7').style.display = 'none';
+        }
+    }
+</script>
+<!-- Actividad 8 (1 paso) -->
+<div id="activity-8" class="activity">
+    <div class="banner" onclick="toggleContent('honor_dojo')">
+        <div class="title">
+            <span>📚 Actividad 8: Honor de Dojo (1 paso)</span>
+            <span>⏰ Tiempo: 2 minutos</span>
+        </div>
+        <div class="subtitle">Recoger y ordenar el salón</div>
+    </div>
+    <div id="honor_dojo" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (2 minutos): Proyectar Diapositiva 39 "Recoger Magic Tablets"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Cada equipo pase al frente y denme sus Magic Tablets.</div>
+        </div>
+    </div>
+</div>
+
+</div> <!-- Cierre del container -->
+
+
+
+<!-- Scripts adicionales si es necesario -->
+<script>
+    // Agregar scripts adicionales aquí si es necesario
+</script>
+
+</body>
+</html>
+  <script src="script.js"></script>
+</body>
+
+</html>
